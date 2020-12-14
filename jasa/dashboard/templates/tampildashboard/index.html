@@ -115,6 +115,7 @@ section .section-title {
 .frontside .card,
 .backside .card {
     min-height: 312px;
+    min-width: 270px;
 }
 
 .backside .card a {
@@ -148,7 +149,7 @@ section .section-title {
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="{{ d.foto.url }}" alt="card image"></p>
                                     <h4 class="card-title">{{ d.nama }}</h4>
                                     <p class="card-text">Alamat :{{d.alamat}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -159,12 +160,12 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title">{{ d.nama }}</h4>
-                                    <p class="card-text">{{d.alamat}}</p>
-                                    <p class="card-text">{{d.kelamin}}</p>
-                                    <p class="card-text">{{d.usia}}</p>
-                                    <p class="card-text">{{d.link}}</p>
-                                    <p class="card-text">{{d.biaya}}</p>
-                                    <a href="{% url 'detail' %}" class="btn btn-primary">Detail</a>
+                                    <p class="card-text">Alamat : {{d.alamat}}</p>
+                                    <p class="card-text">Kelamin : {{d.kelamin}}</p>
+                                    <p class="card-text">Usia : {{d.usia}}</p>
+                                    <p class="card-text">Link  : {{d.link}}</p>
+                                    <p class="card-text">Biaya : {{d.biaya}}</p>
+                                    <a href="{% url 'detail' %}" class="btn btn-dark">Detail</a>
                                 </div>
                             </div>
                         </div>

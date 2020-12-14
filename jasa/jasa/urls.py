@@ -17,13 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from acounts import views
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dashboard.urls')),
+    path('akun/', include('acounts.urls')),
     path('customer/', include('customer.urls')),
     path('adminapp/', include('adminapp.urls')),
-    path('login/', LoginView.as_view(), name='login'),
+    path('login/', views.user_login, name='login'),
     path('keluar/', LogoutView.as_view(next_page='login'), name='keluar'),
-    path('register/', views.registerView, name='register'),
-]
+    path('register/', views.register, name='register'),
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

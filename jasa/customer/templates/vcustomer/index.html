@@ -148,16 +148,50 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="container">
         <h5 class="section-title h1">GURU PRIVATE SD</h5>
         <div class="row">
+        {% if usrx.norole == '2' %}
+            {% if temp == 0 %}
+            <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="{% static 'assets/img/gallery/cv_bg.jpg' %}">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="cv-caption text-center">
+                            <p class="pera1">Lengkapi data anda</p>
+                            <a href="{{usrx.id}}/form" class="border-btn2 border-btn4">Isi Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+        {% endif %}
+
+        {% if usrx.norole == '3' %}
+            {% if temp2 == 0 %}
+            <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="{% static 'assets/img/gallery/cv_bg.jpg' %}">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="cv-caption text-center">
+                            <p class="pera1">Lengkapi data anda</p>
+                            <a href="{{usrx.id}}/formklien" class="border-btn2 border-btn4">Isi Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+        {% endif %}
             <!-- Team member -->
+            {% for d in data %}
             <div class="col-xs-12 col-sm-4 col-md-3">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <p><img class=" img-fluid" src="{{ d.foto.url }}" alt="card image"></p>
+                                    <h4 class="card-title">{{ d.nama }}</h4>
+                                    <p class="card-text">Alamat :{{d.alamat}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
@@ -165,96 +199,22 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <a href="{% url 'cdetail' %}" class="btn btn-primary">Detail</a>
+                                    <h4 class="card-title">{{ d.nama }}</h4>
+                                    <p class="card-text">Alamat : {{d.alamat}}</p>
+                                    <p class="card-text">Kelamin : {{d.kelamin}}</p>
+                                    <p class="card-text">Usia : {{d.usia}}</p>
+                                    <p class="card-text">Link  : {{d.link}}</p>
+                                    <p class="card-text">Biaya : {{d.biaya}}</p>
+                                    <a href="{% url 'detail' %}" class="btn btn-dark">Detail</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <a href="" class="btn btn-primary">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_03.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <a href="" class="btn btn-primary">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ./Team member -->
-            <!-- Team member -->
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <a href="" class="btn btn-primary">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             
             
             
