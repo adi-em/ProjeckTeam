@@ -16,6 +16,14 @@ def profil(request):
         'profil' : profild,
     })
 
+def profilmurid(request):
+    usr  = UserProfileInfo.objects.filter(user=request.user.id).first()
+    idx = usr.id
+    profilm = datamurid.objects.filter(No_id=idx).first()
+    return render(request, 'vcustomer/profilmurid.html',{ 
+        'profil' : profilm,
+    })
+
 def chome(request):
     if request.user.is_authenticated:
         #x=UserProfileInfo.objects.aggregate(Max('nodata'))

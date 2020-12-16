@@ -35,9 +35,14 @@
                                                 <strong>{{user}}</strong></a>
                                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="UserDropdown">
                                               <div class="dropdown-header text-center">
+                                                {% if usrx.norole == '2' %}
                                                 <img class="img-md rounded-circle" src="{{im.foto.url}}" alt="Profile image">
                                                 <a href="{% url 'profilcustomer' %}" class="mb-1 mt-3 font-weight-semibold">{{ user }}</a>
+                                                {% endif %}
                                                 
+                                                {% if usrx.norole == '3' %}
+                                                <a href="{% url 'profilmurid' %}" class="mb-1 mt-3 font-weight-semibold">{{ user }}</a>
+                                                {% endif %}
                                                 <p class="font-weight-light text-muted mb-0">{{user.email}}</p>
                                               </div>
                                               <a href="{% url 'keluar' %}" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
