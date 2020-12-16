@@ -2,55 +2,7 @@
 
 {% load static %}
 {% block content %}
-    <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="{%static 'assets/img/logo/4.jpg' %}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-    <header>
-        <!-- Header Start -->
-        <div class="header-area header-transparrent">
-            <div class="headder-top header-sticky">
-                 <div class="container" >
-                     <div class="row align-items-center">
-                         <div class="col-lg-3 col-md-home/11/profilgr2">
-                             <!-- Logo -->
-                             <div class="logo">
-                                 <a href="{% url 'home' %}"><img style="width: 120px;" src="{%static 'assets/img/logo/3.jpg' %}" alt=""></a>
-                             </div>  
-                         </div>
-                         <div class="col-lg-9 col-md-9">
-                             <div class="menu-wrapper">
-                                 <!-- Main-menu -->
-                                 <div style="margin-left: 60px;" class="main-menu">
-                                     <nav class="d-none d-lg-block">
-                                         <div class="container">
-                                            <h2>Halaman Profil</h2>
-                                         </div>
-                                     </nav>
-                                 </div>          
-                                 <!-- Header-btn -->
-                                 <a style="margin-bottom: 15px;" class="btn btn-danger" aria-pressed="false" data-toggle="button" value="Kembali"
-                                 onclick="history.back(-1)">home</a>
-                             </div>
-                         </div>
-                         <!-- Mobile Menu -->
-                         <div class="col-12">
-                             <div class="mobile_menu d-block d-lg-none"></div>
-                         </div>
-                     </div>
-                 </div>
-            </div>
-        </div>
-        <!-- Header End -->
-    </header>
+{% include 'customernavbar.html' %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
@@ -58,17 +10,14 @@
     <style>
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     </style>
-    <div class="our-services section-pad-t30">
+    <div class="our-services">
     <body class="w3-light-grey" >
         <div class="w3-content w3-margin-top" style="max-width:1400px;">
             <div class="w3-row-padding">                         
               <div class="w3-third">
                 <div class="w3-white w3-text-grey w3-card-4">
                   <div class="w3-display-container">
-                    <img src="{% static 'assets/img/testmonial/testimonial-founder.png' %}" style="width:100%" alt="Avatar"> -
-                    <div class="w3-display-bottomleft w3-container w3-text-black">
-                        <h2>{{list.nama}}</h2>                    
-                    </div>
+                    <img src="{{ list.foto.url }}" style="width:100%" alt="Avatar">
                   </div>
                   <div class="w3-container">
                     <hr>
@@ -114,13 +63,8 @@
                     <h4>{{list.usia}}</h4>
                     <hr>
                   </div>
-                  <div class="w3-container">
-                    <h5 class="w3-opacity"><b>Biaya</b></h5>
-                    <h4>{{list.biaya}}</h4>
-                    <hr>
-                  </div>
                 </div>
-                <div class="w3-container w3-card w3-white">
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
                   <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>PRESTASI</h2>
                   <div class="w3-container">
                     <h5 class="w3-opacity"><b>Link Youtube</b></h5>
@@ -129,7 +73,7 @@
                   </div>
                   <div class="w3-container">
                     <h5 class="w3-opacity"><b>Foto Bukti Kemampuan</b></h5>
-                    <p>----???----</p>
+                    <a href="{{ list.portofolio.url }}" download  class="btn btn-dark float-right">Download</a>
                     <hr>
                   </div>
                   <div class="w3-container">
@@ -137,10 +81,16 @@
                     <p>-mau ngisi kelebihan apa lagi-</p><br>
                   </div>
                 </div>
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                  <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>BIAYA</h2>
+                  <div class="w3-container">
+                    <h5 class="w3-opacity"><b>PAKET</b></h5>
+                    <h4>{{list.biaya}}</h4>
+                    <hr>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <!-- End Page Container -->
           </div>
         
 

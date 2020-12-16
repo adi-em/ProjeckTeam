@@ -19,38 +19,27 @@
                      <div class="col-lg-3 col-md-2">
                          <!-- Logo -->
                          <div class="logo">
-                             <a href="{% url 'chome' %}"><img style="width: 120px;" src="#" alt=""></a>
+                             <a href="{% url 'chome' %}"><img style="width: 120px;" src="{%static 'assets/img/logo/3.jpg' %}" alt=""></a>
                          </div>  
                      </div>
                      <div class="col-lg-9 col-md-9">
                          <div class="menu-wrapper">
                              <!-- Main-menu -->
-                             <div style="margin-left: 60px;" class="main-menu">
+                             <div style="margin-left: 150px;" class="main-menu">
                                  <nav class="d-none d-lg-block">
                                      <ul id="navigation">
                                          <li><a href="{% url 'chome' %}">Home</a></li>
-                                         <li><a href="#">Guru </a></li>
-                                         <li><a href="#">Page</a>
-                                             <ul class="submenu">
-                                                 <li><a href="#">SD</a></li>
-                                                 <li><a href="#">SMP</a></li>
-                                                 <li><a href="#">SMA</a></li>
-                                             </ul>
-                                         </li>
-                                         <li><a href="#">About</a></li>
-                                         <!-- <li>{{usrx.id}}</li>
-                                            <li>{{user.username}}</li>
-                                            <li>{{usrx.norole}}</li> -->
+                                         <li><a href="#">Kategori</a></li>
                                          <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
                                             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                <strong>#</strong></a>
+                                                <strong>{{user}}</strong></a>
                                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="UserDropdown">
                                               <div class="dropdown-header text-center">
-                                                <img class="img-md rounded-circle" src="#" alt="Profile image">
-                                                <p class="mb-1 mt-3 font-weight-semibold">{{ user }}</p>
-                                                <p class="font-weight-light text-muted mb-0">{{user  }}@gmail.com</p>
+                                                <img class="img-md rounded-circle" src="{{im.foto.url}}" alt="Profile image">
+                                                <a href="{% url 'profilcustomer' %}" class="mb-1 mt-3 font-weight-semibold">{{ user }}</a>
+                                                
+                                                <p class="font-weight-light text-muted mb-0">{{user.email}}</p>
                                               </div>
-                                              <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                                               <a href="{% url 'keluar' %}" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
                                             </div>
                                          </li>

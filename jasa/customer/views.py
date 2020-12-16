@@ -8,11 +8,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import imgform
 # Create your views here.
 
-# def chome(request):
-#     return render(request, 'vcustomer/index.html')
-
-def cdetail(request):
-    return render(request, 'vcustomer/detail.html')
+def profil(request):
+    usr  = UserProfileInfo.objects.filter(user=request.user.id).first()
+    idx = usr.id
+    profild = dataguru.objects.filter(no_id=idx).first()
+    return render(request, 'vcustomer/profil2.html',{ 
+        'profil' : profild,
+    })
 
 def chome(request):
     if request.user.is_authenticated:
@@ -23,6 +25,7 @@ def chome(request):
         dtgr = dataguru.objects.all()
         dtms = datamurid.objects.all()
         idx = usr.id
+        foto = dataguru.objects.filter(no_id=idx).first()
         tmp = 0
         for p in dtgr:
             if p.no_id==idx:
@@ -32,6 +35,7 @@ def chome(request):
             if z.No_id==idx:
                 tmp2 += 1
         data = {
+            'im' : foto,
             'usrx':usr,
             'data':dtgr,#data
             'temp':tmp,
@@ -65,6 +69,7 @@ def form(request,no):
          usia=request.POST['usia'],
          link=request.POST['link'],
          foto=request.FILES['image'],
+         portofolio=request.FILES['document']
          )
         
         return redirect('chome')

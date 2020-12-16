@@ -115,6 +115,7 @@ section .section-title {
 .frontside .card,
 .backside .card {
     min-height: 312px;
+    min-width: 270px;
 }
 
 .backside .card a {
@@ -146,7 +147,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <!-- Team -->
 <section id="team" class="pb-5">
     <div class="container">
-        <h5 class="section-title h1">GURU PRIVATE SD</h5>
+        <h5 class="section-title h1">MENTOR</h5>
         <div class="row">
         {% if usrx.norole == '2' %}
             {% if temp == 0 %}
@@ -203,9 +204,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                                     <p class="card-text">Alamat : {{d.alamat}}</p>
                                     <p class="card-text">Kelamin : {{d.kelamin}}</p>
                                     <p class="card-text">Usia : {{d.usia}}</p>
-                                    <p class="card-text">Link  : {{d.link}}</p>
                                     <p class="card-text">Biaya : {{d.biaya}}</p>
-                                    <a href="{% url 'detail' %}" class="btn btn-dark">Detail</a>
+                                    <a href="{{d.id}}/profilgr" class="btn btn-dark">Detail</a>
                                 </div>
                             </div>
                         </div>

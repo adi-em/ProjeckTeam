@@ -39,3 +39,17 @@ class datamurid(models.Model):
 
     def __str__(self):
         return self.nama
+
+class hari(models.Model):
+    NamaHari=models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.NamaHari
+
+class paket(models.Model):
+    NamaPaket=models.CharField(max_length=30)
+    hari=models.ForeignKey(hari, on_delete=models.CASCADE, null=True)
+    jam=models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.NamaPaket

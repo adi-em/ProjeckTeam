@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.chome, name='chome'),
-    path('detail/', views.cdetail, name='cdetail'),
-    path('<id>/profilgr', views.profilgr),
+    path('profil/', views.profil, name='profilcustomer'),
+    path('<id>/profilgr', views.profilgr, name='profil'),
     path('<no>/form', views.form),
     path('<no>/formklien', views.formklien),
 ]

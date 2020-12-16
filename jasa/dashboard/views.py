@@ -9,5 +9,8 @@ def home(request):
         'data' : dt,
     }) 
 
-def detail(request):
-    return render(request, 'tampildashboard/detail.html')
+def profildashboard(request,id):
+    task = models.dataguru.objects.filter(pk=id).first()
+    return render(request, 'tampildashboard/profil.html',{ 
+        'list' : task,
+    })
