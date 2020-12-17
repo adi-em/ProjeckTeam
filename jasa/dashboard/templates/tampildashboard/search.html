@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 
+{% include 'dashboardnavbar.html' %}
 <style>
     /* FontAwesome for working BootSnippet :> */
 
@@ -133,66 +134,23 @@ section .section-title {
     height: 120px;
     border-radius: 50%;
 }
-
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-
 </style>
-    <!-- Preloader Start -->
-    {% include 'customernavbar.html' %}
-
-    
-
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- Team -->
-<section id="team" class="pb-5">
+  
+    <section id="team" class="pb-5">
     <div class="container">
-        <h5 class="section-title h1">MENTOR</h5>
+        <h3>Mentor Yang Anda Cari <span class="text-info">{{ request.GET.keyword }}</span></h3>
+            <hr>
         <div class="row">
-        {% if usrx.norole == '2' %}
-            {% if temp == 0 %}
-            <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="{% static 'assets/img/gallery/cv_bg.jpg' %}">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="cv-caption text-center">
-                            <p class="pera1">Lengkapi data anda</p>
-                            <a href="{{usrx.id}}/form" class="border-btn2 border-btn4">Isi Data</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            {% endif %}
-        {% endif %}
-
-        {% if usrx.norole == '3' %}
-            {% if temp2 == 0 %}
-            <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="{% static 'assets/img/gallery/cv_bg.jpg' %}">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="cv-caption text-center">
-                            <p class="pera1">Lengkapi data anda</p>
-                            <a href="{{usrx.id}}/formklien" class="border-btn2 border-btn4">Isi Data</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            {% endif %}
-        {% endif %}
-            <!-- Team member -->
-            {% for d in data %}
+            {% for result in resulth %}
             <div class="col-xs-12 col-sm-4 col-md-3">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{ d.foto.url }}" alt="card image"></p>
-                                    <h4 class="card-title">{{ d.nama }}</h4>
-                                    <p class="card-text">Alamat :{{d.alamat}}</p>
+                                    <p><img class=" img-fluid" src="{{ result.foto.url }}" alt="card image"></p>
+                                    <h4 class="card-title">{{ result.nama }}</h4>
+                                    <p class="card-text">Alamat :{{result.alamat}}</p>
                                     <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
@@ -200,12 +158,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">{{ d.nama }}</h4>
-                                    <p class="card-text">Alamat : {{d.alamat}}</p>
-                                    <p class="card-text">Kelamin : {{d.gender}}</p>
-                                    <p class="card-text">Usia : {{d.usia}}</p>
-                                    <p class="card-text">Biaya : {{d.biaya}}</p>
-                                    <a href="{{d.id}}/profilgr" class="btn btn-dark">Detail</a>
+                                    <h4 class="card-title">{{ result.nama }}</h4>
+                                    <p class="card-text">Alamat : {{result.alamat}}</p>
+                                    <p class="card-text">Kelamin : {{result.gender}}</p>
+                                    <p class="card-text">Usia : {{result.usia}}</p>
+                                    <p class="card-text">Biaya : {{result.biaya}}</p>
+                                    <a href="{{result.id}}/profildashboard" class="btn btn-dark">Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -213,15 +171,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 </div>
             </div>
             {% endfor %}
-            <!-- ./Team member -->
-
-            
-            
-            
-
         </div>
     </div>
 </section>
-<!-- Team -->
 
 {% endblock %}

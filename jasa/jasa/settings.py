@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'jasa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydb',
+        'USER': 'myuser',
+        'PASSWORD': 'mypass',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

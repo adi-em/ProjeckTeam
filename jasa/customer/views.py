@@ -6,7 +6,19 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import imgform
+from django.views.generic import TemplateView
 # Create your views here.
+
+class SearchCustomer(TemplateView):
+    template_name = 'vcustomer/searchcustomer.html'
+
+    def get_context(self, **kwargs):
+        context = super().get_context(**kwargs)
+        kt = self.request.GET.get('katakunci')
+        hasil = dataguru.objects.filter(nama=kt)
+        print(hasil)
+        kontek["hasill"] = hasil
+        return kontek
 
 def profil(request):
     usr  = UserProfileInfo.objects.filter(user=request.user.id).first()
@@ -70,6 +82,7 @@ def form(request,no):
     if request.POST:
         dataguru.objects.create(
          nama=request.POST['nama'],
+         gender=request.POST['gender'],
          alamat=request.POST['alamat'],
          biaya=request.POST['biaya'],
          no_id=x,
@@ -77,7 +90,7 @@ def form(request,no):
          usia=request.POST['usia'],
          link=request.POST['link'],
          foto=request.FILES['image'],
-         portofolio=request.FILES['document']
+         portofolio=request.FILES['document'],
          )
         
         return redirect('chome')
@@ -96,9 +109,11 @@ def formklien(request,no):
     if request.POST:
         datamurid.objects.create(
          nama=request.POST['nama'],
+         gender=request.POST['gender'],
          alamat=request.POST['alamat'],
          No_id=no,
          nohp=request.POST['nohp'],
+         usia=request.POST['umur'],
 
          )
         
